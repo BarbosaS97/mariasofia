@@ -81,6 +81,7 @@ button:focus-visible {
   }
 }
 
+<<<<<<< HEAD
 /* Garante que [hidden] funcione mesmo em elementos que definem "display"
    em outra regra (ex.: .hero usa display:flex, que sem isso venceria a
    regra padrão do navegador para [hidden] e o elemento nunca sumiria). */
@@ -96,6 +97,13 @@ button:focus-visible {
   position: fixed;
   inset: 0;
   z-index: 200;
+=======
+/* ============================================================
+   SEÇÃO 1: HERO
+   ============================================================ */
+.hero {
+  position: relative;
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -104,12 +112,15 @@ button:focus-visible {
   overflow: hidden;
   text-align: center;
   color: var(--branco-off);
+<<<<<<< HEAD
   transition: opacity 0.6s ease;
 }
 
 .hero.is-saindo {
   opacity: 0;
   pointer-events: none;
+=======
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
 }
 
 /* Vídeo de fundo — sem background-attachment: fixed (buga no iOS) */
@@ -122,13 +133,18 @@ button:focus-visible {
   z-index: 0;
 }
 
+<<<<<<< HEAD
 /* Overlay gradiente rosa/lilás translúcido para legibilidade do texto.
    Mais escuro que uma tonalidade puramente decorativa, para garantir
    contraste do texto branco sobre o vídeo claro. */
+=======
+/* Overlay gradiente rosa/lilás translúcido para legibilidade do texto */
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
 .hero__overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
+<<<<<<< HEAD
   background:
     radial-gradient(
       ellipse 70% 55% at 50% 40%,
@@ -142,6 +158,14 @@ button:focus-visible {
       rgba(180, 120, 150, 0.42) 45%,
       rgba(51, 30, 58, 0.78) 100%
     );
+=======
+  background: linear-gradient(
+    180deg,
+    rgba(216, 191, 224, 0.55) 0%,
+    rgba(247, 202, 201, 0.45) 45%,
+    rgba(107, 78, 113, 0.65) 100%
+  );
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
 }
 
 /* Estrelas douradas cintilando */
@@ -172,6 +196,7 @@ button:focus-visible {
   max-width: 700px;
 }
 
+<<<<<<< HEAD
 /* Botão "Abrir Convite" */
 .btn-abrir-convite {
   display: inline-flex;
@@ -199,6 +224,8 @@ button:focus-visible {
   transform: translateY(-1px) scale(0.99);
 }
 
+=======
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
 .hero__eyebrow {
   font-family: var(--fonte-subtitulo);
   font-size: clamp(1rem, 2.4vw, 1.4rem);
@@ -206,7 +233,11 @@ button:focus-visible {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: var(--espaco-sm);
+<<<<<<< HEAD
   text-shadow: 0 1px 3px rgba(35, 20, 40, 0.75), 0 6px 18px rgba(35, 20, 40, 0.5);
+=======
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
 }
 
 .hero__name {
@@ -215,16 +246,26 @@ button:focus-visible {
   line-height: 1;
   font-weight: 400;
   color: var(--branco-off);
+<<<<<<< HEAD
   text-shadow: 0 2px 4px rgba(35, 20, 40, 0.8), 0 12px 32px rgba(35, 20, 40, 0.55);
+=======
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
   margin-bottom: var(--espaco-xs);
 }
 
 .hero__age {
   font-family: var(--fonte-subtitulo);
   font-size: clamp(1.3rem, 3.5vw, 2rem);
+<<<<<<< HEAD
   font-weight: 700;
   color: var(--dourado);
   text-shadow: 0 1px 3px rgba(35, 20, 40, 0.8), 0 6px 16px rgba(35, 20, 40, 0.5);
+=======
+  font-weight: 600;
+  color: var(--dourado);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
   margin-bottom: var(--espaco-lg);
 }
 
@@ -241,15 +282,23 @@ button:focus-visible {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+<<<<<<< HEAD
   /* Fundo escuro translúcido (não branco) para os números brancos terem contraste real */
   background: rgba(40, 24, 46, 0.42);
   border: 1px solid rgba(255, 249, 245, 0.45);
+=======
+  background: rgba(255, 249, 245, 0.18);
+  border: 1px solid rgba(255, 249, 245, 0.4);
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border-radius: 16px;
   min-width: 68px;
   padding: 0.8rem 0.6rem;
+<<<<<<< HEAD
   box-shadow: 0 6px 18px rgba(35, 20, 40, 0.25);
+=======
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
 }
 
 .countdown__number {
@@ -257,8 +306,11 @@ button:focus-visible {
   font-size: clamp(1.6rem, 4vw, 2.4rem);
   font-weight: 700;
   line-height: 1;
+<<<<<<< HEAD
   color: var(--branco-off);
   text-shadow: 0 2px 6px rgba(35, 20, 40, 0.6);
+=======
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
 }
 
 .countdown__label {
@@ -266,6 +318,7 @@ button:focus-visible {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-top: 0.3rem;
+<<<<<<< HEAD
   color: var(--branco-off);
   opacity: 0.95;
 }
@@ -334,15 +387,50 @@ button:focus-visible {
   text-align: center;
   color: var(--branco-off);
   padding: 0 var(--espaco-md);
+=======
+  opacity: 0.9;
+}
+
+/* Indicador de scroll */
+.hero__scroll {
+  position: absolute;
+  bottom: var(--espaco-md);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  color: var(--branco-off);
+  opacity: 0.85;
+  animation: flutuarSeta 2.2s ease-in-out infinite;
+}
+
+.hero__scroll-dot {
+  animation: descerPonto 2.2s ease-in-out infinite;
+}
+
+@keyframes flutuarSeta {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+@keyframes descerPonto {
+  0% { opacity: 1; cy: 12; }
+  50% { opacity: 0.3; cy: 26; }
+  100% { opacity: 1; cy: 12; }
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
 }
 
 /* ============================================================
    ESTRUTURA GERAL DE SEÇÕES
    ============================================================ */
+<<<<<<< HEAD
 /* Sem fundo opaco: deixa o vídeo fixo do convite aparecer nos vãos
    entre as seções enquanto a página rola por cima dele */
 main {
   position: relative;
+=======
+main {
+  background: var(--branco-off);
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
 }
 
 section {
@@ -392,6 +480,7 @@ section {
 }
 
 /* ============================================================
+<<<<<<< HEAD
    ÁLBUM — duas fotos da Maria Sofia, estilo molduras delicadas
    ============================================================ */
 .album {
@@ -441,6 +530,9 @@ section {
 
 /* ============================================================
    INFORMAÇÕES DA FESTA
+=======
+   SEÇÃO 2: INFORMAÇÕES DA FESTA
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
    ============================================================ */
 .info__grid {
   display: grid;
@@ -490,14 +582,87 @@ section {
 }
 
 /* ============================================================
+<<<<<<< HEAD
    CONFIRMAÇÃO DE PRESENÇA
    ============================================================ */
 .rsvp__content {
+=======
+   SEÇÃO 3: ATIVIDADES (cards inspirados em tutu)
+   ============================================================ */
+.atividades {
+  background: linear-gradient(180deg, transparent 0%, rgba(216, 191, 224, 0.18) 50%, transparent 100%);
+}
+
+.atividades__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--espaco-lg) var(--espaco-md);
+}
+
+.tutu-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: var(--raio-card);
+  padding: var(--espaco-lg) var(--espaco-sm) var(--espaco-md);
+  text-align: center;
+  box-shadow: var(--sombra-suave);
+  transition: transform var(--transicao);
+}
+
+.tutu-card:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* "Semicírculo" no topo, inspirado no formato de um tutu */
+.tutu-card::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 60px;
+  background: linear-gradient(160deg, var(--lilas-suave), var(--rosa-quartzo));
+  border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+  box-shadow: var(--sombra-suave);
+}
+
+.tutu-card__icon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto var(--espaco-sm);
+  color: var(--texto);
+}
+
+.tutu-card h3 {
+  font-family: var(--fonte-subtitulo);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.tutu-card p {
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   SEÇÃO 4: CONFIRMAÇÃO DE PRESENÇA
+   ============================================================ */
+.rsvp {
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
   text-align: center;
   background: linear-gradient(160deg, var(--rosa-quartzo) 0%, var(--lilas-suave) 100%);
   border-radius: var(--raio-card);
   max-width: 900px;
+<<<<<<< HEAD
   margin: 0 auto;
+=======
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
   padding: var(--espaco-xl) var(--espaco-md);
 }
 
@@ -518,14 +683,22 @@ section {
   to { transform: rotate(360deg); }
 }
 
+<<<<<<< HEAD
 .rsvp__content h2 {
+=======
+.rsvp h2 {
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
   font-family: var(--fonte-subtitulo);
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   font-weight: 600;
   margin-bottom: var(--espaco-sm);
 }
 
+<<<<<<< HEAD
 .rsvp__content p {
+=======
+.rsvp p {
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
   max-width: 480px;
   margin: 0 auto var(--espaco-lg);
   color: var(--texto);
@@ -553,7 +726,11 @@ section {
 }
 
 /* ============================================================
+<<<<<<< HEAD
    MAPA
+=======
+   SEÇÃO 5: MAPA
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
    ============================================================ */
 .mapa__wrap {
   border-radius: var(--raio-card);
@@ -563,7 +740,11 @@ section {
 
 .mapa__iframe {
   width: 100%;
+<<<<<<< HEAD
   height: 320px;
+=======
+  height: 380px;
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
   border: 0;
   display: block;
 }
@@ -584,7 +765,11 @@ section {
 }
 
 /* ============================================================
+<<<<<<< HEAD
    RODAPÉ
+=======
+   SEÇÃO 6: RODAPÉ
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
    ============================================================ */
 .rodape {
   text-align: center;
@@ -651,13 +836,22 @@ section {
    ============================================================ */
 
 /* Ajustes para telas muito pequenas (abaixo de 480px) já cobertos
+<<<<<<< HEAD
    pelos valores clamp() acima. Reforços aqui: */
+=======
+   pelos valores clamp() e grid de 2 colunas acima. Reforços aqui: */
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
 @media (max-width: 480px) {
   section {
     padding: var(--espaco-lg) var(--espaco-sm);
   }
 
+<<<<<<< HEAD
   .info__grid {
+=======
+  .info__grid,
+  .atividades__grid {
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
     grid-template-columns: 1fr;
     gap: var(--espaco-md);
   }
@@ -667,6 +861,7 @@ section {
     padding: 0.6rem 0.4rem;
   }
 
+<<<<<<< HEAD
   .rsvp__content {
     padding: var(--espaco-lg) var(--espaco-sm);
     border-radius: 16px;
@@ -683,6 +878,12 @@ section {
   .album__foto {
     width: min(180px, 44vw);
   }
+=======
+  .rsvp {
+    padding: var(--espaco-lg) var(--espaco-sm);
+    border-radius: 16px;
+  }
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
 }
 
 /* Tablet */
@@ -690,19 +891,42 @@ section {
   .info__grid {
     grid-template-columns: repeat(2, 1fr);
   }
+<<<<<<< HEAD
+=======
+
+  .atividades__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
 }
 
 /* Desktop pequeno / tablet grande */
 @media (min-width: 768px) and (max-width: 1024px) {
   .info__grid {
+<<<<<<< HEAD
     grid-template-columns: repeat(3, 1fr);
+=======
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .atividades__grid {
+    grid-template-columns: repeat(4, 1fr);
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
   }
 }
 
 /* Desktop */
 @media (min-width: 1024px) {
   .info__grid {
+<<<<<<< HEAD
     grid-template-columns: repeat(3, 1fr);
+=======
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .atividades__grid {
+    grid-template-columns: repeat(4, 1fr);
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
   }
 
   section {

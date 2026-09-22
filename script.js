@@ -10,7 +10,11 @@
    ------------------------------------------------------------ */
 const CONFIG = {
   aniversariante: "Maria Sofia",
+<<<<<<< HEAD
   idade: 3,
+=======
+  idade: 7, // ← AJUSTAR
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
 
   // Data/hora da festa no formato ISO local (usado na contagem regressiva)
   dataFesta: new Date(2026, 11, 27, 17, 0, 0), // 27/12/2026 às 17h ← AJUSTAR (mês é 0-indexado: 11 = dezembro)
@@ -20,15 +24,24 @@ const CONFIG = {
   local: "Espaço Villa Uno", // ← AJUSTAR
   endereco: "Endereço a definir — Cidade/UF", // ← AJUSTAR (usado no texto e pode ser usado na busca do mapa)
 
+<<<<<<< HEAD
+=======
+  dressCode: "Venha de bailarina ou príncipe", // ← AJUSTAR
+
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
   // Número de WhatsApp completo, só dígitos, com DDI 55 + DDD + número
   whatsapp: "556193807375", // informado pelo cliente — conferir DDD/dígitos antes de publicar
   mensagemWhatsapp: "Olá! Confirmo presença na festa da Maria Sofia 🩰",
 
   // Caminho do arquivo de música de fundo (opcional).
   // Se o arquivo não existir, o botão continua funcionando sem quebrar o site.
+<<<<<<< HEAD
   musicaSrc: "midias/musica.mp3",
   musicaInicioSegundos: 30, // a faixa começa (e reinicia, no loop) a partir deste ponto
   musicaFimSegundos: 122, // ~2:02 — corta antes da fala no final da faixa (2:12) ← AJUSTAR se ainda pegar a fala
+=======
+  musicaSrc: "midias/musica.mp3", // ← AJUSTAR (adicione o arquivo quando disponível)
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
 };
 
 /* ============================================================
@@ -83,11 +96,15 @@ function preencherDados() {
   mapaTexto("info-horario", CONFIG.horarioTexto);
   mapaTexto("info-local", CONFIG.local);
   mapaTexto("info-endereco", CONFIG.endereco);
+<<<<<<< HEAD
 
   // Idade aparece tanto na capa quanto na abertura do convite
   const textoIdade = `${CONFIG.idade} ${CONFIG.idade === 1 ? "aninho" : "aninhos"}`;
   mapaTexto("capa-idade", textoIdade);
   mapaTexto("convite-idade", textoIdade);
+=======
+  mapaTexto("info-dresscode", CONFIG.dressCode);
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
 
   // Botão do WhatsApp com mensagem pré-preenchida
   const btnWhatsapp = document.getElementById("whatsappBtn");
@@ -98,9 +115,16 @@ function preencherDados() {
 }
 
 /* ============================================================
+<<<<<<< HEAD
    3. ESTRELAS DOURADAS CINTILANDO (capa e abertura do convite)
    ============================================================ */
 function gerarEstrelas(container) {
+=======
+   3. ESTRELAS DOURADAS CINTILANDO NO HERO
+   ============================================================ */
+function gerarEstrelas() {
+  const container = document.getElementById("heroStars");
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
   if (!container) return;
 
   const prefereReduzirMovimento = window.matchMedia(
@@ -184,17 +208,35 @@ function iniciarPirouette() {
    6. MÚSICA DE FUNDO (play/pause + localStorage)
    Fallback silencioso: se o arquivo midias/musica.mp3 não existir,
    o botão continua clicável mas não quebra a página.
+<<<<<<< HEAD
    Retorna controles reaproveitados pelo botão "Abrir Convite",
    que dispara a música automaticamente (dentro do próprio clique
    do usuário, para respeitar a política de autoplay dos navegadores).
+=======
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
    ============================================================ */
 function iniciarMusica() {
   const btn = document.getElementById("musicToggle");
   const audio = document.getElementById("bgMusic");
+<<<<<<< HEAD
   if (!btn || !audio) return null;
 
   const CHAVE_STORAGE = "mariaSofia_musicaTocando";
 
+=======
+  if (!btn || !audio) return;
+
+  const CHAVE_STORAGE = "mariaSofia_musicaTocando";
+
+  function lerPreferencia() {
+    try {
+      return localStorage.getItem(CHAVE_STORAGE) === "true";
+    } catch (erro) {
+      return false;
+    }
+  }
+
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
   function salvarPreferencia(tocando) {
     try {
       localStorage.setItem(CHAVE_STORAGE, String(tocando));
@@ -212,6 +254,7 @@ function iniciarMusica() {
     );
   }
 
+<<<<<<< HEAD
   function tocar() {
     if (audio.currentTime < CONFIG.musicaInicioSegundos) {
       audio.currentTime = CONFIG.musicaInicioSegundos;
@@ -308,6 +351,39 @@ function iniciarAberturaConvite(musica) {
       }, DURACAO_FADE_MS);
     }
   });
+=======
+  btn.addEventListener("click", () => {
+    if (audio.paused) {
+      const promessa = audio.play();
+      if (promessa && typeof promessa.catch === "function") {
+        promessa
+          .then(() => {
+            atualizarBotao(true);
+            salvarPreferencia(true);
+          })
+          .catch(() => {
+            // Arquivo de música ausente ou bloqueio de autoplay:
+            // falha de forma silenciosa, sem quebrar a página.
+            atualizarBotao(false);
+            salvarPreferencia(false);
+          });
+      } else {
+        atualizarBotao(true);
+        salvarPreferencia(true);
+      }
+    } else {
+      audio.pause();
+      atualizarBotao(false);
+      salvarPreferencia(false);
+    }
+  });
+
+  // Retoma a preferência salva (sem autoplay forçado, navegadores bloqueiam
+  // áudio com som sem interação prévia do usuário).
+  if (lerPreferencia()) {
+    atualizarBotao(false); // mantém desligado até o usuário interagir novamente
+  }
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
 }
 
 /* ============================================================
@@ -316,10 +392,17 @@ function iniciarAberturaConvite(musica) {
 document.addEventListener("DOMContentLoaded", () => {
   preencherDados();
   iniciarContagemRegressiva();
+<<<<<<< HEAD
   gerarEstrelas(document.getElementById("capaStars"));
   gerarEstrelas(document.getElementById("conviteStars"));
   iniciarScrollReveal();
   iniciarPirouette();
   const musica = iniciarMusica();
   iniciarAberturaConvite(musica);
+=======
+  gerarEstrelas();
+  iniciarScrollReveal();
+  iniciarPirouette();
+  iniciarMusica();
+>>>>>>> 525b66891b4cd6ffbd715c74bcc6edd98a820cf8
 });
