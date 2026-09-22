@@ -22,7 +22,7 @@ const CONFIG = {
   dataFestaTexto: "27 de dezembro de 2026", // ← AJUSTAR
   horarioTexto: "A partir das 17h", // ← AJUSTAR
 
-  local: "Espaço Villa Uno", // ← AJUSTAR (confirme se esse é o nome certo do espaço)
+  local: "Espaço Villa Uno I Casa de Festa Infantil", // confirmado pelo link do Google Maps
   endereco: "St. Hab. Vicente Pires, Lote 36, Loja 08 - Taguatinga, Brasília - DF, 72005-100",
 
   // Número de WhatsApp completo, só dígitos, com DDI 55 + DDD + número
