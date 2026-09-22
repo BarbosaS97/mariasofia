@@ -3,6 +3,11 @@
    Script principal (JS puro, sem dependências)
    ============================================================ */
 
+/** Abra o link com "?demo" no final (ex.: ...index.html?demo) para mostrar este convite
+ *  como exemplo de portfólio: some o endereço e desliga "Confirmar no WhatsApp".
+ *  O link normal (sem "?demo"), já enviado aos convidados, continua funcionando igual. */
+const MODO_DEMO = /[?&]demo(?:=1)?(?:&|$)/i.test(location.search);
+
 /* ------------------------------------------------------------
    CONFIG — todos os dados editáveis do convite ficam aqui.
    Ajuste os valores marcados com "// ← AJUSTAR" antes de enviar
@@ -17,8 +22,8 @@ const CONFIG = {
   dataFestaTexto: "27 de dezembro de 2026", // ← AJUSTAR
   horarioTexto: "A partir das 17h", // ← AJUSTAR
 
-  local: "Espaço Villa Uno", // ← AJUSTAR
-  endereco: "Endereço a definir — Cidade/UF", // ← AJUSTAR (usado no texto e pode ser usado na busca do mapa)
+  local: "Espaço Villa Uno", // ← AJUSTAR (confirme se esse é o nome certo do espaço)
+  endereco: "St. Hab. Vicente Pires, Lote 36, Loja 08 - Taguatinga, Brasília - DF, 72005-100",
 
   // Número de WhatsApp completo, só dígitos, com DDI 55 + DDD + número
   whatsapp: "556193807375", // informado pelo cliente — conferir DDD/dígitos antes de publicar
