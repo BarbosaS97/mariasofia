@@ -11,9 +11,11 @@
   --dourado:      #E8C39E;
   --texto:        #6B4E71;
   --acento-rosa:  #E8A0BF;
+  --vinho:        #6E2B48; /* texto escuro sobre o fundo rosa claro da capa/convite */
+  --dourado-escuro: #A8763D; /* variante mais escura do dourado, legível sobre fundo claro */
 
   /* Tipografia */
-  --fonte-titulo: 'Great Vibes', 'Brush Script MT', cursive;
+  --fonte-titulo: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
   --fonte-subtitulo: 'Cormorant Garamond', 'Georgia', serif;
   --fonte-corpo: 'Poppins', 'Segoe UI', sans-serif;
 
@@ -112,7 +114,7 @@ button:focus-visible {
   justify-content: center;
   overflow: hidden;
   text-align: center;
-  color: var(--branco-off);
+  color: var(--vinho);
   transition: opacity 0.6s ease;
 }
 
@@ -131,9 +133,9 @@ button:focus-visible {
   z-index: 0;
 }
 
-/* Overlay gradiente rosa/lilás translúcido para legibilidade do texto.
-   Mais escuro que uma tonalidade puramente decorativa, para garantir
-   contraste do texto branco sobre o vídeo claro. */
+/* Véu rosa claro e uniforme sobre o vídeo — só para dar a tonalidade
+   e "esclarear" o desenho, já que o contraste do texto vem da cor
+   escura (--vinho) aplicada nele, não de escurecer o fundo. */
 .hero__overlay {
   position: absolute;
   inset: 0;
@@ -141,15 +143,15 @@ button:focus-visible {
   background:
     radial-gradient(
       ellipse 70% 55% at 50% 40%,
-      rgba(51, 30, 58, 0.55) 0%,
-      rgba(51, 30, 58, 0.22) 45%,
+      rgba(255, 249, 245, 0.55) 0%,
+      rgba(255, 249, 245, 0.3) 45%,
       transparent 75%
     ),
     linear-gradient(
       180deg,
-      rgba(94, 58, 107, 0.55) 0%,
-      rgba(180, 120, 150, 0.42) 45%,
-      rgba(51, 30, 58, 0.78) 100%
+      rgba(255, 249, 245, 0.45) 0%,
+      rgba(247, 202, 201, 0.4) 45%,
+      rgba(232, 160, 191, 0.4) 100%
     );
 }
 
@@ -164,7 +166,8 @@ button:focus-visible {
 .hero__star {
   position: absolute;
   border-radius: 50%;
-  background: var(--dourado);
+  background: var(--dourado-escuro);
+  box-shadow: 0 0 4px rgba(255, 249, 245, 0.8);
   opacity: 0;
   animation: cintilar linear infinite;
 }
@@ -233,29 +236,31 @@ button:focus-visible {
 .hero__eyebrow {
   font-family: var(--fonte-subtitulo);
   font-size: clamp(1rem, 2.4vw, 1.4rem);
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: var(--espaco-sm);
-  text-shadow: 0 1px 3px rgba(35, 20, 40, 0.75), 0 6px 18px rgba(35, 20, 40, 0.5);
+  text-shadow: 0 1px 2px rgba(255, 249, 245, 0.8), 0 0 18px rgba(255, 249, 245, 0.6);
 }
 
 .hero__name {
   font-family: var(--fonte-titulo);
-  font-size: clamp(3.5rem, 12vw, 7.5rem);
-  line-height: 1;
-  font-weight: 400;
-  color: var(--branco-off);
-  text-shadow: 0 2px 4px rgba(35, 20, 40, 0.8), 0 12px 32px rgba(35, 20, 40, 0.55);
-  margin-bottom: var(--espaco-xs);
+  font-style: italic;
+  font-size: clamp(2.75rem, 8.5vw, 5.5rem);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--vinho);
+  text-shadow: 0 1px 2px rgba(255, 249, 245, 0.85), 0 0 26px rgba(255, 249, 245, 0.65);
+  margin-bottom: var(--espaco-sm);
 }
 
 .hero__age {
   font-family: var(--fonte-subtitulo);
   font-size: clamp(1.3rem, 3.5vw, 2rem);
   font-weight: 700;
-  color: var(--dourado);
-  text-shadow: 0 1px 3px rgba(35, 20, 40, 0.8), 0 6px 16px rgba(35, 20, 40, 0.5);
+  color: var(--dourado-escuro);
+  text-shadow: 0 1px 2px rgba(255, 249, 245, 0.8), 0 0 18px rgba(255, 249, 245, 0.6);
   margin-bottom: var(--espaco-lg);
 }
 
@@ -272,15 +277,15 @@ button:focus-visible {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* Fundo escuro translúcido (não branco) para os números brancos terem contraste real */
-  background: rgba(40, 24, 46, 0.42);
-  border: 1px solid rgba(255, 249, 245, 0.45);
+  /* Cartão claro e delicado, coerente com o fundo rosa suave */
+  background: rgba(255, 249, 245, 0.82);
+  border: 1px solid rgba(232, 195, 158, 0.6);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border-radius: 16px;
   min-width: 68px;
   padding: 0.8rem 0.6rem;
-  box-shadow: 0 6px 18px rgba(35, 20, 40, 0.25);
+  box-shadow: 0 6px 18px rgba(107, 78, 113, 0.15);
 }
 
 .countdown__number {
@@ -288,8 +293,7 @@ button:focus-visible {
   font-size: clamp(1.6rem, 4vw, 2.4rem);
   font-weight: 700;
   line-height: 1;
-  color: var(--branco-off);
-  text-shadow: 0 2px 6px rgba(35, 20, 40, 0.6);
+  color: var(--vinho);
 }
 
 .countdown__label {
@@ -297,8 +301,8 @@ button:focus-visible {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-top: 0.3rem;
-  color: var(--branco-off);
-  opacity: 0.95;
+  color: var(--vinho);
+  opacity: 0.75;
 }
 
 /* ============================================================
@@ -339,17 +343,18 @@ button:focus-visible {
   object-fit: cover;
 }
 
-/* Overlay único, cobrindo o vídeo do início ao fim da rolagem, para o
-   texto e os cartões permanecerem legíveis em qualquer altura da página */
+/* Véu rosa claro e uniforme, do início ao fim da rolagem — o mesmo
+   raciocínio do overlay da capa: só esclarece/tinge o vídeo, o
+   contraste do texto vem da cor escura (--vinho) aplicada nele. */
 .convite__fundo-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(51, 30, 58, 0.62) 0%,
-    rgba(94, 58, 107, 0.48) 35%,
-    rgba(180, 120, 150, 0.4) 65%,
-    rgba(51, 30, 58, 0.65) 100%
+    rgba(255, 249, 245, 0.5) 0%,
+    rgba(247, 202, 201, 0.42) 35%,
+    rgba(232, 160, 191, 0.4) 65%,
+    rgba(255, 249, 245, 0.5) 100%
   );
 }
 
@@ -363,7 +368,7 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: var(--branco-off);
+  color: var(--vinho);
   padding: 0 var(--espaco-md);
 }
 
@@ -447,12 +452,12 @@ section {
 }
 
 .album__foto {
-  width: min(340px, 46vw);
+  width: min(460px, 78vw);
   aspect-ratio: 4 / 5;
-  border-radius: 18px;
+  border-radius: 22px;
   overflow: hidden;
   background: #ffffff;
-  padding: 10px;
+  padding: 12px;
   box-shadow: var(--sombra-suave);
   border: 1px solid rgba(232, 195, 158, 0.6);
   transition: transform var(--transicao), box-shadow var(--transicao);
@@ -462,19 +467,11 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 12px;
-}
-
-.album__foto--esquerda {
-  transform: rotate(-4deg);
-}
-
-.album__foto--direita {
-  transform: rotate(3deg);
+  border-radius: 14px;
 }
 
 .album__foto:hover {
-  transform: rotate(0deg) translateY(-6px) scale(1.02);
+  transform: translateY(-6px) scale(1.02);
   box-shadow: 0 16px 36px rgba(107, 78, 113, 0.2);
 }
 
@@ -722,7 +719,7 @@ section {
   }
 
   .album__foto {
-    width: min(220px, 46vw);
+    width: min(280px, 82vw);
   }
 }
 

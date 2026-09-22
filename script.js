@@ -85,7 +85,7 @@ function preencherDados() {
   mapaTexto("info-endereco", CONFIG.endereco);
 
   // Idade aparece tanto na capa quanto na abertura do convite
-  const textoIdade = `${CONFIG.idade} ${CONFIG.idade === 1 ? "aninho" : "aninhos"}`;
+  const textoIdade = `${CONFIG.idade} ${CONFIG.idade === 1 ? "aninho" : "aninhos"} de puro encanto`;
   mapaTexto("capa-idade", textoIdade);
   mapaTexto("convite-idade", textoIdade);
 
