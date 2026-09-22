@@ -87,7 +87,10 @@ function preencherDados() {
   mapaTexto("info-data", CONFIG.dataFestaTexto);
   mapaTexto("info-horario", CONFIG.horarioTexto);
   mapaTexto("info-local", CONFIG.local);
-  mapaTexto("info-endereco", CONFIG.endereco);
+  mapaTexto(
+    "info-endereco",
+    MODO_DEMO ? "Endereço disponível para convidados confirmados" : CONFIG.endereco
+  );
 
   // Idade aparece tanto na capa quanto na abertura do convite
   const textoIdade = `${CONFIG.idade} ${CONFIG.idade === 1 ? "aninho" : "aninhos"} de puro encanto`;
@@ -97,9 +100,38 @@ function preencherDados() {
   // Botão do WhatsApp com mensagem pré-preenchida
   const btnWhatsapp = document.getElementById("whatsappBtn");
   if (btnWhatsapp) {
-    const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.mensagemWhatsapp)}`;
-    btnWhatsapp.setAttribute("href", url);
+    if (MODO_DEMO) {
+      btnWhatsapp.setAttribute("href", "#");
+      btnWhatsapp.addEventListener("click", (evento) => {
+        evento.preventDefault();
+        mostrarAviso("Este é um convite de exemplo. Fale com a gente para criar o seu!");
+      });
+    } else {
+      const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.mensagemWhatsapp)}`;
+      btnWhatsapp.setAttribute("href", url);
+    }
   }
+}
+
+/** Aviso rápido (toast) usado só no modo demo — sem depender de nenhum elemento extra no HTML. */
+let avisoTimer;
+function mostrarAviso(texto) {
+  let el = document.getElementById("demoAviso");
+  if (!el) {
+    el = document.createElement("div");
+    el.id = "demoAviso";
+    el.setAttribute("role", "alert");
+    el.style.cssText =
+      "position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:9999;" +
+      "max-width:90vw;padding:12px 20px;border-radius:999px;text-align:center;" +
+      "background:#16303A;color:#fff;font:600 14px/1.4 system-ui,sans-serif;" +
+      "box-shadow:0 10px 30px rgba(0,0,0,.25);opacity:0;transition:opacity .25s ease;pointer-events:none";
+    document.body.appendChild(el);
+  }
+  el.textContent = texto;
+  el.style.opacity = "1";
+  clearTimeout(avisoTimer);
+  avisoTimer = setTimeout(() => { el.style.opacity = "0"; }, 3200);
 }
 
 /* ============================================================
